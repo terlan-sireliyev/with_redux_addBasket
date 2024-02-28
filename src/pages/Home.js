@@ -53,10 +53,20 @@ const Home = () => {
                         alt="sd"
                       />
                     </div>
-                    <p className="line-clamp-1">{item.title}</p>
-                    <p>{item.price}</p>
+                    <p className="flex my-[3px]">
+                      <p className=" ml-2  font-bold">Prdocust name: </p>
+                      <p className="ml-2">
+                        {item.title.split("").slice(0, 15)}...
+                      </p>
+                    </p>
+                    <p className="flex  my-[3px]">
+                      <h1 className=" ml-2 text-left font-bold">
+                        Product price:
+                      </h1>
+                      <p className="ml-[5px]">{item.price}</p>
+                    </p>
                     <button
-                      className="border border-600 px-8 py-2 my-4"
+                      className="border w-4/5 m-auto border-600 px-8 py-2 my-4"
                       onClick={() => addCart(item)}
                     >
                       Add to cart
