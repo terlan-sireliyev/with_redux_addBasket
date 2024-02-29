@@ -2,33 +2,62 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const cartSlice = createSlice({
   name: "cart",
-  count:"counter",
   initialState: {
     cart: [],
-    value:0
+    count: 0,
   },
   reducers: {
     addtoCart: (state, action) => {
       const { payload } = action;
-      const id = payload.id;
-
-      const limitedCard = state.cart.findIndex((item) => item.id === id);
-
-      if (limitedCard !== -1) {
-        alert("Bir ədəddən artıq əlavə edə bilmərsiz!");
-        return;
+      const findPro = state.cart.find((item) => item.id === payload.id);
+      if (findPro) {
+        const updatedBasket = state.cart.map((item) =>
+          item.id === payload.id ? { ...item } : item
+        );
+        return {
+          ...state,
+          cart: updatedBasket,
+        };
+      } else {
+        return {
+          ...state,
+          cart: [...state.cart, { ...payload, count: 1 }],
+        };
       }
-      state.cart.push(payload);
     },
 
     decrement: (state, action) => {
-      if (state.counter) {
-        console.log(state.counter++); // Decrement counter only if it's greater than 0
+      const { payload } = action;
+      const findPro = state.cart.find((item) => item.id === payload.id);
+      if (findPro) {
+        const updatedBasket = state.cart.map((item) =>
+          item.id === payload.id ? { ...item, count: item.count + 1 } : item
+        );
+        return {
+          ...state,
+          cart: updatedBasket,
+        };
+      } else {
+        return state;
       }
-    }
-  
-    
+    },
+    increment: (state, action) => {
+      const { id } = action.payload;
+      const findMinus = state.cart.find(
+        (itemMinusFind) => itemMinusFind.id === id
+      );
+      if (findMinus && findMinus.count > 1) {
+        const mapMinus = state.cart.map((itemMinusMap) =>
+          itemMinusMap.id === id
+            ? { ...itemMinusMap, count: itemMinusMap.count - 1 }
+            : itemMinusMap
+        );
+        return { ...state, cart: mapMinus };
+      } else {
+        return state;
+      }
+    },
   },
 });
 export default cartSlice.reducer;
-export const { addtoCart,  decrement } = cartSlice.actions;
+export const { addtoCart, decrement, increment } = cartSlice.actions;

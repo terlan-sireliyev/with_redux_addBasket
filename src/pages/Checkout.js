@@ -1,55 +1,67 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import styles from "../features/style.module.css";
-import { useDispatch } from "react-redux";
-import { decrement } from "../features/cardSlice";
+import { decrement, increment } from "../features/cardSlice";
+
 const Checkout = () => {
   const dispatch = useDispatch();
-  const cartItem = useSelector((state) => state.cart.cart);
-  const value = useSelector((state) => {
-    return state.counter.value;
-  });
-  
-  const decrementBtn = (item, action) => {
-    dispatch(decrement())
-    console.log(dispatch(decrement()))
-    // console.log()
+  const cartItems = useSelector((state) => state.cart.cart);
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  useEffect(() => {
+    let totalPrice = 0;
+    cartItems.forEach((item) => {
+      totalPrice += item.price * item.count;
+    });
+    setTotalPrice(totalPrice);
+  }, [cartItems]);
+
+  const decrementBtn = (itemId) => {
+    dispatch(decrement(itemId)); // Dispatching the decrement action with the itemId
   };
-  
+  const incrementBtn = (itemId) => {
+    dispatch(increment(itemId)); // Dispatching the decrement action with the itemId
+  };
+
   return (
     <>
-      <div className="text-center text-2xl font-bold mt-4">
-        Your general orders {cartItem.length}
+      <div className="text-center text-2xl font-bold mt-4 flex justify-around">
+        <div>Your general orders count: {cartItems.length}</div>
+        <div>Total Price: {totalPrice}AZN</div>
       </div>
       <div className={styles.checkoutWrapp}>
-        {cartItem.map((item) => {
-          return (
-            <>
-              <div className="border border-600">
-                <div className="w-[295px] h-64 p-2">
-                  <img
-                    src={item.thumbnail}
-                    className="w-full h-full"
-                    alt="sd"
-                  />
-                </div>
-                <p className="flex my-[3px]">
-                  <p className=" ml-2  font-bold">Prdocust name: </p>
-                  <p className="ml-2">{item.title.split("").slice(0, 15)}...</p>
-                </p>
-                <p className="flex  my-[3px]">
-                  <h1 className=" ml-2 text-left font-bold">Product price:</h1>
-                  <p className="ml-[5px]">{item.price}</p>
-                </p>
-                <div className="flex justify-between">
-                <button  onClick={() => decrementBtn(item)} className="w-full border-t border-r border-gray px-8 py-2 mt-4">-</button>
-                <button className="w-full border-t  border-gray px-8 py-2 mt-4">{value}</button>
-                <button className="w-full border-t border-l border-gray px-8 py-2 mt-4">+</button>
-                </div>
-              </div>
-            </>
-          );
-        })}
+        {cartItems.map((item) => (
+          <div key={item.id} className="border border-600">
+            <div className="w-[295px] h-64 p-2">
+              <img src={item.thumbnail} className="w-full h-full" alt="sd" />
+            </div>
+            <p className="flex my-[3px]">
+              <p className="ml-2 font-bold">Product name: </p>
+              <p className="ml-2">{item.title}...</p>
+            </p>
+            <p className="flex my-[3px]">
+              <h1 className="ml-2 text-left font-bold">Product price:</h1>
+              <p className="ml-[5px]">{item.price}</p>
+            </p>
+            <div className="flex justify-between">
+              <button
+                onClick={() => incrementBtn(item)}
+                className="w-full border-t border-r border-gray px-8 py-2 mt-4"
+              >
+                -
+              </button>
+              <button className="w-full border-t border-gray px-8 py-2 mt-4">
+                {item.count}
+              </button>
+              <button
+                onClick={() => decrementBtn(item)}
+                className="w-full border-t border-l border-gray px-8 py-2 mt-4"
+              >
+                +
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
     </>
   );
