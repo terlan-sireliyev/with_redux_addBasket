@@ -40,17 +40,17 @@ const Home = () => {
               return (
                 <>
                   <div className={styles.cardOne}>
-                    <div className="w-[295px] h-64 p-2">
+                    <div className="w-[230px] max-md:w-[100%] max-md:h-[50%] h-64 p-2">
                       <img
                         src={item.thumbnail}
-                        className="w-full h-full"
+                        className="w-full h-full max-md:w-full object-sticky"
                         alt="sd"
                       />
                     </div>
                     <p className="flex my-[3px]">
                       <p className=" ml-2  font-bold">Prdocust name: </p>
                       <p className="ml-2">
-                        {item.title.split("").slice(0, 15)}...
+                        {item.title.split("").slice(0, 8)}...
                       </p>
                     </p>
                     <p className="flex  my-[3px]">
@@ -60,7 +60,7 @@ const Home = () => {
                       <p className="ml-[5px]">{item.price}</p>
                     </p>
                     <button
-                      className=" w-4/5 m-auto border border-600 px-8 py-2 my-4"
+                      className=" w-4/5 m-auto border border-600 px-8 py-2 my-4 max-md:mt-[90px]"
                       onClick={() => addCart(item)}
                     >
                       Add to cart
