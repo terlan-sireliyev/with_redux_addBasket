@@ -37,7 +37,7 @@ const Checkout = () => {
             </div>
             <p className="flex my-[3px]">
               <p className="ml-2 font-bold">Product name: </p>
-              <p className="ml-2">{item.title}...</p>
+              <p className="ml-2">{item.title.split("").slice(0, 15)}...</p>
             </p>
             <p className="flex my-[3px]">
               <h1 className="ml-2 text-left font-bold">Product price:</h1>
