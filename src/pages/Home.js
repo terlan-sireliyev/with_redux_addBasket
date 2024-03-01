@@ -9,13 +9,18 @@ const Home = () => {
   const cartItem = useSelector((state) => state.cart.cart);
   const [product, setProducts] = useState([]);
   const emptyArray = [];
+  const commonArray = [];
   useEffect(() => {
     fetch("https://dummyjson.com/carts")
       .then((res) => res.json())
       .then((result) => {
-        setProducts({ id: result.carts });
+        setProducts({ products: result.carts });
         emptyArray.push(product);
+        // products.foreach((im) => console.log(im));
       });
+    // console.log(emptyArray[result.products]);
+    // emptyArray.forEach((im) => commonArray.push(im.products));
+    // console.log(commonArray);
   }, []);
   for (let ad in product) {
     emptyArray.push(...product[ad]);
@@ -28,6 +33,8 @@ const Home = () => {
         thumbnail: item.thumbnail,
         title: item.title,
         price: item.price,
+        quantity: item.quantity,
+        totalPrice: item.totalPrice,
       })
     );
   };
@@ -55,7 +62,7 @@ const Home = () => {
                     </p>
                     <p className="flex  my-[3px]">
                       <h1 className=" ml-2 text-left font-bold">
-                        Product price:
+                        Product price:{item.quantity}
                       </h1>
                       <p className="ml-[5px]">{item.price}</p>
                     </p>
