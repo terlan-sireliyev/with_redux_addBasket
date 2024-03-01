@@ -27,6 +27,10 @@ const CheckOutDesktop = () => {
   const deleteBtn = (itemId) => {
     dispatch(deleteFunc(itemId)); // Dispatching the delete action with the itemId
   };
+  const reducer = cartItems.reduce(
+    (prev, current) => prev + current.price * current.count,
+    0
+  );
 
   return (
     <>
@@ -92,6 +96,7 @@ const CheckOutDesktop = () => {
             </div>
           </div>
         ))}
+        <div>Common Price: {reducer}</div>
       </div>
     </>
   );
