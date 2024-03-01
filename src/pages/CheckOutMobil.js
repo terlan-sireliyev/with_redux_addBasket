@@ -30,9 +30,9 @@ const CheckOutMobil = () => {
 
   return (
     <>
-      <div className="w-5/6 m-auto my-6">
+      <div className="w-5/6 m-auto my-6 ">
         {cartItems.map((item) => (
-          <div className="flex flex-col justify-around my-4  border borer-1 ">
+          <div className="flex flex-col  justify-around my-4  border borer-1 ">
             <div className="w-full h-48  m-auto">
               <img
                 src={item.thumbnail}

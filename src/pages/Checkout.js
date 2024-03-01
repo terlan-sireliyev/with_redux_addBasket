@@ -7,7 +7,7 @@ const Checkout = () => {
         <div className="max-md:hidden">
           <CheckOutDesktop />
         </div>
-        <div className="hidden  max-md:block">
+        <div className="mt-16 hidden  max-md:block">
           <CheckOutMobil />
         </div>
       </div>
