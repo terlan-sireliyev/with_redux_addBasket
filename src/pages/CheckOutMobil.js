@@ -89,7 +89,7 @@ const CheckOutMobil = () => {
             </div>
           ))}
           <div className="flex max-md:flex-col max-md:w-full">
-            <div className="w-[100%] border border-1 p-2 border-r-0">
+            <div className="w-[100%] border border-1 p-2 ">
               <h1>Choose shoppig mode:</h1>
               <div>
                 <input
