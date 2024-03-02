@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { decrement, increment, deleteFunc } from "../features/cardSlice";
 import { ChooseShoppingMobil } from "../components/ChooseShopping";
@@ -6,16 +6,7 @@ import { ChooseShoppingMobil } from "../components/ChooseShopping";
 const CheckOutMobil = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.cart);
-  // const [totalPrice, setTotalPrice] = useState(0);
   const [shippingMode, setShippingMode] = useState("free"); // State to track the selected shipping mode
-
-  // useEffect(() => {
-  //   let totalPrice = 0;
-  //   cartItems.forEach((item) => {
-  //     totalPrice += item.price * item.count;
-  //   });
-  //   setTotalPrice(totalPrice);
-  // }, [cartItems]);
 
   const decrementBtn = (itemId) => {
     dispatch(decrement(itemId)); // Dispatching the decrement action with the itemId
