@@ -72,14 +72,14 @@ const CheckOutMobil = () => {
                 <div className="">Count</div>
                 <div className="flex items-center justify-center gap-2 h-4 w-24">
                   <button
-                    onClick={() => incrementBtn(item)}
+                    onClick={() => decrementBtn(item)}
                     className="w-1/2 bg-gray-200 hover:bg-gray-400 "
                   >
                     -
                   </button>
                   <button className="w-1/2 bg-gray-600 "> {item.count}</button>
                   <button
-                    onClick={() => decrementBtn(item)}
+                    onClick={() => incrementBtn(item)}
                     className="w-1/2 bg-gray-200 hover:bg-gray-400 "
                   >
                     +
