@@ -1,5 +1,5 @@
-import CheckOutDesktop from "./CheckOut.jDesktops";
-import CheckOutMobil from "./CheckOutMobil";
+import CheckOutDesktop from "../components/CheckOutDesktops";
+import CheckOutMobil from "../components/CheckOutMobil";
 const Checkout = () => {
   return (
     <>

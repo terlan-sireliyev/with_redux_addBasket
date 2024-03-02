@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styles from "../features/style.module.css";
-import ChooseShopping from "../components/ChooseShopping";
+import ChooseShopping from "./ChooseShopping";
 import {
   decrement,
   increment,
