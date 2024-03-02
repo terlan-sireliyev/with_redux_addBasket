@@ -20,7 +20,7 @@ const ChooseShopping = ({
               checked={shippingMode === "free"}
               onChange={() => setShippingMode("free")}
             />
-            <label htmlFor="free"> Free</label>
+            <label htmlFor="free"> Store pickup - FREE</label>
           </div>
           <div>
             <input
@@ -31,7 +31,7 @@ const ChooseShopping = ({
               checked={shippingMode === "delivery"}
               onChange={() => setShippingMode("delivery")}
             />
-            <label htmlFor="delivery"> Delivery: 9AZN</label>
+            <label htmlFor="delivery"> Delivery t home: 9AZN</label>
           </div>
         </div>
         <div className="w-[34%] border border-1 p-2 border-l border-l-rose-500">
@@ -63,12 +63,12 @@ const ChooseShopping = ({
 
 export default ChooseShopping;
 
-export const ChooseShoppingMobil = (
+export const ChooseShoppingMobil = ({
   shippingMode,
   setShippingMode,
   reducerDelivery,
-  reducer
-) => {
+  reducer,
+}) => {
   return (
     <div>
       <div className="flex max-md:flex-col max-md:w-full">
@@ -83,7 +83,7 @@ export const ChooseShoppingMobil = (
               checked={shippingMode === "free"}
               onChange={() => setShippingMode("free")}
             />
-            <label htmlFor="free"> Free</label>
+            <label htmlFor="free"> Store pickup - FREE </label>
           </div>
           <div>
             <input
@@ -94,7 +94,7 @@ export const ChooseShoppingMobil = (
               checked={shippingMode === "delivery"}
               onChange={() => setShippingMode("delivery")}
             />
-            <label htmlFor="delivery"> Delivery: 9AZN</label>
+            <label htmlFor="delivery"> Delivery at home: : 9AZN</label>
           </div>
         </div>
         <div className="w-[100%] border border-1 p-2 border-t-0">
