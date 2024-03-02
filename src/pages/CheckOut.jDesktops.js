@@ -115,7 +115,7 @@ const CheckOutDesktop = () => {
                 checked={shippingMode === "free"}
                 onChange={() => setShippingMode("free")}
               />
-              <label htmlFor="free">Free</label>
+              <label htmlFor="free"> Free</label>
             </div>
             <div>
               <input
@@ -126,12 +126,12 @@ const CheckOutDesktop = () => {
                 checked={shippingMode === "delivery"}
                 onChange={() => setShippingMode("delivery")}
               />
-              <label htmlFor="delivery">Delivery: 9AZN</label>
+              <label htmlFor="delivery"> Delivery: 9AZN</label>
             </div>
           </div>
           <div className="w-[34%] border border-1 p-2 border-l border-l-rose-500">
             <div className="flex justify-between">
-              <p>subtotal ttc:</p>
+              <p>Subtotal TTC:</p>
               <p>{reducer}</p>
             </div>
             <div className="flex justify-between">
@@ -139,7 +139,7 @@ const CheckOutDesktop = () => {
               <p>{shippingMode === "free" ? "Free" : "9AZN"}</p>
             </div>
             <div className="flex justify-between">
-              <p>total:</p>
+              <p>Total:</p>
               <p>{shippingMode === "free" ? reducer : reducerDelivery}</p>
             </div>
           </div>
