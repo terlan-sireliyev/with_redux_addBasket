@@ -34,7 +34,7 @@ const Home = () => {
         title: item.title,
         price: item.price,
         quantity: item.quantity,
-        totalPrice: item.totalPrice,
+        delivery: item.delivery,
       })
     );
   };

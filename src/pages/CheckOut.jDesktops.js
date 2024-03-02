@@ -9,6 +9,7 @@ const CheckOutDesktop = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.cart);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [shippingMode, setShippingMode] = useState("free"); // State to track the selected shipping mode
 
   useEffect(() => {
     let totalPrice = 0;
@@ -32,13 +33,18 @@ const CheckOutDesktop = () => {
     0
   );
 
+  const reducerDelivery = cartItems.reduce(
+    (prev, current) => reducer + current.delivery,
+    0
+  );
+
   return (
     <>
       <div className="text-center  text-2xl font-bold mt-4 flex justify-around">
         <div>Your general orders count: {cartItems.length}</div>
         <div>Total Price: {totalPrice}AZN</div>
       </div>
-      <div className="w-1/2 flex flex-col m-auto max-md:w-full max-md:px-2">
+      <div className="w-1/2 flex flex-col m-auto max-lg:w-[85%] max-md:px-2 py-4">
         <div className="w-full my-4">
           <ul className=" w-full flex  rounded ">
             <div className="w-1/2 text-left ">Image</div>
@@ -70,7 +76,7 @@ const CheckOutDesktop = () => {
               </div>
               <div className="w-1/2 flex items-center">
                 <button
-                  onClick={() => incrementBtn(item)}
+                  onClick={() => decrementBtn(item)}
                   className="max-md:w-full px-[9.2px] py-2 "
                 >
                   -
@@ -79,7 +85,7 @@ const CheckOutDesktop = () => {
                   {item.count}
                 </button>
                 <button
-                  onClick={() => decrementBtn(item)}
+                  onClick={() => incrementBtn(item)}
                   className="max-md:w-full px-[9.2px] py-2"
                 >
                   +
@@ -96,7 +102,48 @@ const CheckOutDesktop = () => {
             </div>
           </div>
         ))}
-        <div>Common Price: {reducer}</div>
+        {/* <div>Common Price: {reducer}</div> */}
+        <div className="flex max-md:flex-col">
+          <div className="w-[50%] border border-1 p-2 border-r-0">
+            <h1>Choose shoppig mode:</h1>
+            <div>
+              <input
+                type="radio"
+                id="free"
+                name="shippingMode"
+                value="free"
+                checked={shippingMode === "free"}
+                onChange={() => setShippingMode("free")}
+              />
+              <label htmlFor="free">Free</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id="delivery"
+                name="shippingMode"
+                value="delivery"
+                checked={shippingMode === "delivery"}
+                onChange={() => setShippingMode("delivery")}
+              />
+              <label htmlFor="delivery">Delivery: 9AZN</label>
+            </div>
+          </div>
+          <div className="w-[34%] border border-1 p-2 border-l border-l-rose-500">
+            <div className="flex justify-between">
+              <p>subtotal ttc:</p>
+              <p>{reducer}</p>
+            </div>
+            <div className="flex justify-between">
+              <p>Shipping:</p>
+              <p>{shippingMode === "free" ? "Free" : "9AZN"}</p>
+            </div>
+            <div className="flex justify-between">
+              <p>total:</p>
+              <p>{shippingMode === "free" ? reducer : reducerDelivery}</p>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
