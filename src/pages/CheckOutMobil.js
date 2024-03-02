@@ -127,6 +127,14 @@ const CheckOutMobil = () => {
                 <p>Total:</p>
                 <p>{shippingMode === "free" ? reducer : reducerDelivery}</p>
               </div>
+              <div className=" mt-4 rounded text-center">
+                <button className="bg-gray-600 py-[5px] w-full flex justify-around   rounded sfont-bold text-white">
+                  <div className="">Checktout</div>
+                  <div className="">
+                    {shippingMode === "free" ? reducer : reducerDelivery} AZN
+                  </div>
+                </button>
+              </div>
             </div>
           </div>
         </div>
