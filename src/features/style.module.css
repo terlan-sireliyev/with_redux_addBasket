@@ -22,15 +22,19 @@
   margin-top: 60px;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 522px) {
   .wrap,
   .checkoutWrapp {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 100%);
-    grid-template-rows: repeat(auto-fill, 400px);
+    grid-template-columns: repeat(auto-fill, 40%);
+    /* grid-template-rows: repeat(auto-fill, 400px); */
     grid-gap: 45px 20px;
     justify-content: center;
     padding: 20px;
     margin-top: 60px;
+  }
+  .btn {
+    font-size: 5px !important;
+    color: red !important;
   }
 }
