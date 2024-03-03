@@ -54,20 +54,19 @@ const Home = () => {
                         alt="sd"
                       />
                     </div>
-                    <p className="flex my-[3px]">
-                      <p className=" ml-2  font-bold">Prdocust name: </p>
+                    <p className="flex my-[3px] justify-center">
+                      {/* <p className=" ml-2  font-bold"></p> */}
                       <p className="ml-2">
-                        {item.title.split("").slice(0, 8)}...
+                        {item.title.split("").slice(0, 15)}...
                       </p>
                     </p>
-                    <p className="flex  my-[3px]">
-                      <h1 className=" ml-2 text-left font-bold">
-                        Product price:{item.quantity}
-                      </h1>
-                      <p className="ml-[5px]">{item.price}</p>
+                    <p className="flex justify-center my-[6px]">
+                      <p className="ml-[5px] bg-rose-600 text-white font-bold px-4 py-[2px] rounded">
+                        {item.price} AZN
+                      </p>
                     </p>
                     <button
-                      className={`${"max-sm:text-[14px] w-4/5 m-auto border border-600 py-2 my-4 "}`}
+                      className={`${"max-sm:text-[14px] w-4/5 m-auto border border-600 py-2 my-2 "}`}
                       onClick={() => addCart(item)}
                     >
                       Add to cart

@@ -28,10 +28,7 @@
   .checkoutWrapp {
     display: grid;
     grid-template-columns: repeat(auto-fill, 46%);
-    /* grid-template-rows: repeat(auto-fill, 400px); */
-    /* grid-gap: 45px 20px; */
     justify-content: center;
-
     padding: 20px;
     margin-top: 60px;
   }
@@ -45,17 +42,15 @@
   .wrap,
   .checkoutWrapp {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 100%);
-    /* grid-template-rows: repeat(auto-fill, 400px); */
-    /* grid-gap: 45px 20px; */
+    grid-template-columns: repeat(auto-fill, 46%);
     justify-content: center;
-
     padding: 20px;
     margin-top: 60px;
   }
   .cardOne,
   .checkoutCard {
     border: 1px solid #c4c4c4;
-    height: 300px;
+    height: 280px;
+    border-radius: 5px;
   }
 }
