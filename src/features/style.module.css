@@ -46,7 +46,7 @@
   .checkoutWrapp {
     display: grid;
     grid-template-columns: repeat(auto-fill, 100%);
-    grid-template-rows: repeat(auto-fill, 400px);
+    /* grid-template-rows: repeat(auto-fill, 400px); */
     /* grid-gap: 45px 20px; */
     justify-content: center;
 
