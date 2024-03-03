@@ -54,11 +54,8 @@ const Home = () => {
                         alt="sd"
                       />
                     </div>
-                    <p className="flex my-[3px] justify-center">
-                      {/* <p className=" ml-2  font-bold"></p> */}
-                      <p className="ml-2">
-                        {item.title.split("").slice(0, 15)}...
-                      </p>
+                    <p className=" flex my-[3px] justify-center">
+                      <p className="line-clamp-1 ml-2">{item.title}...</p>
                     </p>
                     <p className="flex justify-center my-[6px]">
                       <p className="ml-[5px] bg-rose-600 text-white font-bold px-4 py-[2px] rounded">
