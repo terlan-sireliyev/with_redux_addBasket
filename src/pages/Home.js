@@ -16,11 +16,7 @@ const Home = () => {
       .then((result) => {
         setProducts({ products: result.carts });
         emptyArray.push(product);
-        // products.foreach((im) => console.log(im));
       });
-    // console.log(emptyArray[result.products]);
-    // emptyArray.forEach((im) => commonArray.push(im.products));
-    // console.log(commonArray);
   }, []);
   for (let ad in product) {
     emptyArray.push(...product[ad]);

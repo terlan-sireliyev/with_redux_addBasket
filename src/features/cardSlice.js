@@ -10,6 +10,7 @@ const cartSlice = createSlice({
   },
   reducers: {
     addtoCart: (state, action) => {
+      console.log("addtoCart reducer called");
       const { payload } = action;
       const findPro = state.cart.find((item) => item.id === payload.id);
       if (findPro) {
@@ -18,7 +19,7 @@ const cartSlice = createSlice({
             ? { ...item, delivery: item.delivery, count: item.count + 1 }
             : item
         );
-        console.log(updatedBasket);
+
         return {
           ...state,
           cart: updatedBasket,
