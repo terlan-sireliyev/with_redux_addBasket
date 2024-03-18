@@ -23,6 +23,11 @@ const Home = () => {
   }
 
   const addCart = (item) => {
+    const isInCart = cartItem.find((cartItem) => cartItem.id === item.id);
+    if (isInCart) {
+      alert('Item is already in the cart');
+      return;
+    }
     dispatch(
       addtoCart({
         id: item.id,

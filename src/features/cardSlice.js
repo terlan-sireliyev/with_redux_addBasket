@@ -14,6 +14,7 @@ const cartSlice = createSlice({
       const { payload } = action;
       const findPro = state.cart.find((item) => item.id === payload.id);
       if (findPro) {
+        
         const updatedBasket = state.cart.map((item) =>
           item.id === payload.id
             ? { ...item, delivery: item.delivery, count: item.count + 1 }
