@@ -53,7 +53,7 @@ const Home = () => {
                 return (
                   <>
                     <div className={styles.cardOne}>
-                      <div className="w-full max-md:w-[100%] max-md:h-[65%] h-64 p-2">
+                      <div className="w-full max-md:w-[100%] max-md:h-[61%] h-64 p-2">
                         <img
                           src={item.thumbnail}
                           className="w-full h-full max-md:w-full object-sticky"
