@@ -1,11 +1,11 @@
 .cardOne,
 .checkoutCard {
-  /* border: 1px solid #c4c4c4; */
   display: flex;
   flex-direction: column;
-
-  /* justify-content: center; */
-  /* align-items: center; */
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
 }
 .cardOne:hover,
 .checkoutCard:hover {
@@ -15,15 +15,14 @@
 .wrap,
 .checkoutWrapp {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 230px);
-
+  grid-template-columns: repeat(auto-fill, 280px);
   grid-gap: 15px 10px;
   justify-content: center;
   padding: 20px;
-  margin-top: 60px;
+  margin: 60px auto;
 }
 
-@media only screen and (max-width: 522px) {
+@media only screen and (max-width: 630px) {
   .wrap,
   .checkoutWrapp {
     display: grid;
@@ -35,14 +34,14 @@
   .cardOne,
   .checkoutCard {
     border: 1px solid #c4c4c4;
-    height: 300px;
+    height: 360px;
   }
 }
 @media only screen and (max-width: 500px) {
   .wrap,
   .checkoutWrapp {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 46%);
+    grid-template-columns: repeat(auto-fill, 47%);
     justify-content: center;
     padding: 0px;
     margin-top: 60px;
@@ -50,7 +49,7 @@
   .cardOne,
   .checkoutCard {
     border: 1px solid #c4c4c4;
-    height: 280px;
+    height: 340px;
     border-radius: 5px;
   }
 }
