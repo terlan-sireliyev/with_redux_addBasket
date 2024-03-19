@@ -1,5 +1,7 @@
 import Home from "./pages/Home";
 import Checkout from "../src/pages/Checkout";
+import About from "../src/pages/About";
+
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import Layout from "./Layout";
@@ -12,6 +14,7 @@ function App() {
           <Layout />
           <Routes>
             <Route path="/" element={<Home />}></Route>
+            <Route path="/about" element={<About />}></Route>
             <Route path="/checkout" element={<Checkout />}></Route>
           </Routes>
         </BrowserRouter>

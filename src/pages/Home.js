@@ -69,7 +69,7 @@ const Home = () => {
                         </p>
                       </p>
                       <button
-                        className={`${"max-sm:text-[14px] w-4/5 m-auto border border-600 py-2 my-2 "}`}
+                        className={`${"max-sm:text-[14px] hover:bg-gray-300  hover:font-bold focus:bg-gray-300  focus:font-bold w-4/5 m-auto border border-600 py-2 my-2 "}`}
                         onClick={() => addCart(item)}
                       >
                         Add to cart
